@@ -1,0 +1,11 @@
+import mysql.connector           // mysql.connector used to communicate with mysql
+
+db = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+)
+
+mycursor = db.cursor()
+
+mycursor.execute("create database Family")
