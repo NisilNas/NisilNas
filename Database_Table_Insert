@@ -1,0 +1,17 @@
+import mysql.connector
+
+db = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+  database="Family"
+)
+
+mycursor = db.cursor()
+
+mycursor.execute("insert into Members values"    // Nisil and Nabil will inserted inside column 'Name' of Member Table
+                 "('Nisil','24')")
+mycursor.execute("insert into Members values"    // Both 24's will inserted inside column 'Age' of Member Table
+                 "('Nabil','24')")
+
+db.commit()
