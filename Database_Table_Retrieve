@@ -1,0 +1,15 @@
+import mysql.connector
+
+db = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+  database="Family"
+)
+
+mycursor = db.cursor()
+
+mycursor.execute("select * from Members")       // '*' symbol is for printing all data in the table
+myresult = mycursor.fetchall()
+for x in myresult:
+  print(x)
