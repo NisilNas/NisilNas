@@ -4,9 +4,9 @@ db = mysql.connector.connect(
   host="localhost",
   user="root",
   password="root",
-  database="Family"
-)
+  database="Family"                                                      // VARCHAR is Character Datatype
+)                                                                        // INT is Interger Datatype
 
 mycursor = db.cursor()
 
-mycursor.execute("create table Members(Name VARCHAR(255), Age INT)")
+mycursor.execute("create table Members(Name VARCHAR(255), Age INT)")     // Create a table with tablename as Member with 2 column Name & Age
