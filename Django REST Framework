@@ -1,0 +1,52 @@
+from django.db import models
+from django.contrib import admin
+from .models import Members
+from rest_framework import serializers
+from .models import Members
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Members
+from .serializers import memberSerializer
+from django.contrib import admin
+from django.urls import path
+from Member import views
+
+
+# Create your models here.
+
+class Members(models.Model):
+    Name=models.CharField(max_length=10)
+    Age=models.IntegerField()
+
+
+    def __str__(self):
+        return self.Name
+        
+# Register your models here.                                        
+
+admin.site.register(Members)
+                                                                In Terminal
+class memberSerializer(serializers.ModelSerializer):             make migration command give below:
+                                                                 python manage.py makemigrations
+ class Meta:                                                     python manage.py migrate
+     model= Members
+     fields = '__all__'                                          create superuser command give below 
+                                                                 python manage.py createsuperuser
+  class memberList(APIView):                                     then give username and password
+    def get(self,request):
+        member1=Members.objects.all()
+        serializer=memberSerializer(member1, many= True)
+        return Response(serializer.data)
+
+    def post(self):
+        pass      
+        
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('member', views.memberList.as_view()),
+
+                                                                
+
